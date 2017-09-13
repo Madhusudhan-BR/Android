@@ -3,6 +3,4 @@
     <string name="action_one">Calculator</string>
     <string name="action_two">Liner Layout</string>
     <string name="action_three">MovieList</string>
-    <string name="action_four">Main Activity</string>
-
 </resources>
