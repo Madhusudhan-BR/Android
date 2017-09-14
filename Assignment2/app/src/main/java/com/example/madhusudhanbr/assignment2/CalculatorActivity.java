@@ -221,7 +221,7 @@ public class CalculatorActivity extends AppCompatActivity {
                         break;
                     default: return;
                 }
-                Toast.makeText(getApplicationContext(), "lhs" + lhs + "rhs" + rhs + "operator" + operator , Toast.LENGTH_LONG).show();
+                //Toast.makeText(getApplicationContext(), "lhs" + lhs + "rhs" + rhs + "operator" + operator , Toast.LENGTH_LONG).show();
                 textView.setText(Double.toString(result));
                 lhs = result;
                 rhs = 0.0;

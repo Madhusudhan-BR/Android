@@ -15,6 +15,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import android.view.View;
+import android.support.design.widget.Snackbar;
 
 public class MovieList extends AppCompatActivity {
 
@@ -28,7 +29,7 @@ public class MovieList extends AppCompatActivity {
 
 
 
-        SeekBar seekBar = (SeekBar) findViewById(R.id.seekBar);
+        final SeekBar seekBar = (SeekBar) findViewById(R.id.seekBar);
         TextView idView = (TextView) findViewById(R.id.textView4);
         TextView titleView = (TextView) findViewById(R.id.textView6);
         TextView descView = (TextView) findViewById(R.id.textView8);
@@ -126,9 +127,27 @@ public class MovieList extends AppCompatActivity {
             }
         });
 
-        
+        image.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
 
+                seekBar.setProgress(5);
 
+                return true;
+            }
+        });
+
+        image.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getApplicationContext(),"Short press Toast", Toast.LENGTH_LONG).show();
+                View customView = findViewById(R.id.activity_movie_list);
+                Snackbar snackbar = Snackbar
+                        .make(customView, "This is a snackbar! Hope its tasty", Snackbar.LENGTH_LONG);
+
+                snackbar.show();
+            }
+        });
 
     }
 

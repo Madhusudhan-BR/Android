@@ -1,11 +1,36 @@
 <resources>
 
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
     </style>
+
+    <style name="Theme1" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/custom1colorPrimary</item>
+        <item name="colorPrimaryDark">@color/custom1colorPrimaryDark</item>
+        <item name="colorAccent">@color/custom1colorAccent</item>
+        <item name="android:windowBackground">@color/custom1colorbg</item>
+    </style>
+
+    <style name="Theme2" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/custom2colorPrimary</item>
+        <item name="colorPrimaryDark">@color/custom2colorPrimaryDark</item>
+        <item name="colorAccent">@color/custom2colorAccent</item>
+        <item name="android:windowBackground">@color/custom2colorbg</item>
+    </style>
+
+    <style name="Theme3" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/custom3colorPrimary</item>
+        <item name="colorPrimaryDark">@color/custom3colorPrimaryDark</item>
+        <item name="colorAccent">@color/custom3colorAccent</item>
+        <item name="android:windowBackground">@color/custom3colorbg</item>
+    </style>
+
 
 </resources>
