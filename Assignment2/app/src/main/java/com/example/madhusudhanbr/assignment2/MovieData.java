@@ -4,26 +4,30 @@ package com.example.madhusudhanbr.assignment2;
  * Created by madhusudhanb.r on 9/13/17.
  */
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+
+
 public class MovieData {
-    List <Map<String,?>> moviesList ;
-    public List <Map<String,?>> getMoviesList () {
+    List<Map<String,?>> moviesList;
+    public List <Map<String,?>> getMoviesList() {
         return moviesList ;
     }
-    public int getSize () {
-        return moviesList . size () ;
+    public int getSize() {
+        return moviesList.size() ;
     }
-    public HashMap getItem (int i){
-        if (i >=0 && i < moviesList . size () ){
-            return ( HashMap ) moviesList . get ( i);
+    public HashMap getItem(int i){
+        if (i >=0 && i<moviesList.size() ){
+            return (HashMap)moviesList.get(i);
         }
         else
             return null ;
     }
-    public MovieData () {
+
+    public MovieData() {
 // Movie detail information is your choice .
         Integer vote_count ;
         Integer id ;
@@ -34,10 +38,10 @@ public class MovieData {
         String backdrop_path ;
         String overview ;
         String release ;
-        List < Integer > genres ;
+        //List < Integer > genres ;
 // need to add your 25 movies
 
-
+        moviesList = new ArrayList<Map<String, ?>>();
 
         HashMap one = createMovie(211672,R.drawable.minions,4381,6.4,1169.4,"Minions","/q0R4crx2SehcEEQEkYObktdeFy.jpg", "/uX7LXnsC7bZJZjn048UCOwkPXWJ.jpg","Minions Stuart, Kevin and Bob are recruited by Scarlet Overkill, a super-villain who, alongside her inventor husband Herb, hatches a plot to take over the world.","2015-06-17");
         moviesList.add(one);
@@ -167,17 +171,17 @@ public class MovieData {
             vCount , Double vAvg , Double pop , String title , String poster ,
                                   String backdrop , String overview , String release
                                    ) {
-        HashMap movie = new HashMap () ;
-        movie.put(" image " , image );
-        movie.put(" id " , id );
-        movie.put(" voteCount " , vCount );
-        movie.put(" voteAverage " , vAvg );
-        movie.put(" popularity " , pop );
-        movie.put(" title " , title );
-        movie.put(" poster " , poster );
-        movie.put(" backdrop " , backdrop ) ;
-        movie.put(" overview " , overview ) ;
-        movie.put(" release " , release );
+        HashMap movie = new HashMap() ;
+        movie.put("image",image );
+        movie.put("id",id );
+        movie.put("voteCount" , vCount );
+        movie.put("voteAverage" , vAvg );
+        movie.put("popularity" , pop );
+        movie.put("title" , title );
+        movie.put("poster" , poster );
+        movie.put("backdrop" , backdrop ) ;
+        movie.put("overview" , overview ) ;
+        movie.put("release" , release );
         //movie.put(" genres " , genres );
         return movie ;
     }
