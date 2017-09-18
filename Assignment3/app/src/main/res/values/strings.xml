@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Assignment3</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="string_one">About me</string>
+    <string name="string_two">View Pager</string>
+    <string name="string_three">Master-Detail</string>
+</resources>
