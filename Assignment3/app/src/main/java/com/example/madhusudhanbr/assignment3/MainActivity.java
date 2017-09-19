@@ -16,13 +16,31 @@ public class MainActivity extends AppCompatActivity implements FrontPageFragment
 
     @Override
     public void onClicked(View view) {
-        FragmentManager fragmentManager = getSupportFragmentManager();
-        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
 
-        AboutMeFragment fragment2 = new AboutMeFragment();
-        fragmentTransaction.replace(R.id.container,fragment2);
-        fragmentTransaction.addToBackStack(null);
-        fragmentTransaction.commit();
+        switch (view.getId()){
+            
+            case R.id.button2 : FragmentManager fragmentManager = getSupportFragmentManager();
+                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+
+                AboutMeFragment fragment2 = new AboutMeFragment();
+                fragmentTransaction.replace(R.id.container,fragment2);
+                fragmentTransaction.addToBackStack(null);
+                fragmentTransaction.commit();
+
+                break;
+
+            case R.id.button3: Intent intent = new Intent(MainActivity.this,ViewPagerActivity.class);
+
+                startActivity(intent); break;
+
+            case R.id.button4: Intent indent = new Intent(MainActivity.this, MasterDetailActivity.class);
+
+                startActivity(indent); break;
+            default:
+                break;
+        }
+
+
     }
 
     @Override
