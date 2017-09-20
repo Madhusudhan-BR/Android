@@ -10,7 +10,7 @@ public class MasterDetailActivity extends AppCompatActivity implements MasterDet
 
     private boolean mTwoPane;
     MovieData myMovieData = new MovieData();
-
+    int count = -1;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -20,10 +20,20 @@ public class MasterDetailActivity extends AppCompatActivity implements MasterDet
             mTwoPane = true;
         }
 
-        MasterDetailFragment fragment1 = new MasterDetailFragment();
+        //MasterDetailFragment fragment1 = new MasterDetailFragment();
 
-        getSupportFragmentManager().beginTransaction().add(R.id.main_container,fragment1)
+        setCount(count);
+        getSupportFragmentManager().beginTransaction().add(R.id.main_container, MasterDetailFragment.newInstance(count))
                 .commit();
+
+    }
+
+    public void setCount(int counter) {
+        count = counter;
+
+        if(count == -1) {
+            count = 0;
+        }
 
     }
 

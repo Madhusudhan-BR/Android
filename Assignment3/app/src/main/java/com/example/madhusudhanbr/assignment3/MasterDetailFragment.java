@@ -27,7 +27,7 @@ public class MasterDetailFragment extends Fragment {
     TextView textView;
     Button increaseButton;
     Button decreaseButton;
-    static int count = 0;
+    static int count;
 
     public interface CustomListerner {
         public void clicked(View view , int count);
@@ -43,27 +43,39 @@ public class MasterDetailFragment extends Fragment {
 
 
     // TODO: Rename and change types and number of parameters
-//    public static MasterDetailFragment newInstance(String param1, String param2) {
-//        MasterDetailFragment fragment = new MasterDetailFragment();
-//        Bundle args = new Bundle();
-//        args.putString(ARG_PARAM1, param1);
-//        args.putString(ARG_PARAM2, param2);
-//        fragment.setArguments(args);
-//        return fragment;
-//    }
-//
+    public static MasterDetailFragment newInstance(int counter) {
+        MasterDetailFragment fragment = new MasterDetailFragment();
+        Bundle args = new Bundle();
+        count = counter;
+        args.putInt("count",count);
+        fragment.setArguments(args);
+        return fragment;
+    }
+
 //    @Override
 //    public void onCreate(Bundle savedInstanceState) {
 //        super.onCreate(savedInstanceState);
 //        if (getArguments() != null) {
-//            mParam1 = getArguments().getString(ARG_PARAM1);
-//            mParam2 = getArguments().getString(ARG_PARAM2);
+//            count = getArguments().getInt("count");
+//
 //        }
 //    }
 
+    private void readBundle(Bundle bundle) {
+        if(bundle != null) {
+            count = bundle.getInt("count");
+        }
+    }
+
+    private void setBundle(Bundle bundle, int counter) {
+        if(bundle != null) {
+            bundle.putInt("count",counter);
+        }
+    }
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+                             final Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_master_detail, container, false);
 
@@ -71,13 +83,20 @@ public class MasterDetailFragment extends Fragment {
         increaseButton = (Button) view.findViewById(R.id.button);
         decreaseButton = (Button) view.findViewById(R.id.button5);
 
+
+        readBundle(getArguments());
+
         textView.setText(Integer.toString(count));
 
         increaseButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                count = count++;
-
+                count = count + 1;
+                if(count >= 25) {
+                    count = 24;
+                }
+                //savedInstanceState.putInt("count", count);
+                //setBundle(getArguments(), count);
                 buttonClicked(v, count);
                 textView.setText(Integer.toString(count));
             }
@@ -86,7 +105,13 @@ public class MasterDetailFragment extends Fragment {
         decreaseButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                buttonClicked(v, count--);
+                count = count -1;
+                if(count <= -1) {
+                    count = 0;
+                }
+                buttonClicked(v, count);
+                //savedInstanceState.putInt("count", count);
+                //setBundle(getArguments(),count);
                 textView.setText(Integer.toString(count));
             }
         });
@@ -94,6 +119,14 @@ public class MasterDetailFragment extends Fragment {
         return view ;
     }
 
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        setBundle(getArguments(),count);
+       MasterDetailActivity activity = (MasterDetailActivity) getActivity();
+        activity.count = count;
+
+    }
 
     public  void buttonClicked(View v, int count) {
         customListerner.clicked(v, count);
