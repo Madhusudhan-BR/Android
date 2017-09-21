@@ -88,9 +88,12 @@ public class MasterDetailFragment extends Fragment {
 
         textView.setText(Integer.toString(count));
 
+
         increaseButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+
                 count = count + 1;
                 if(count >= 25) {
                     count = 24;

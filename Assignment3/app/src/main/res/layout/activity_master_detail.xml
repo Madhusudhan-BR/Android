@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/main_container"
+    android:background="#FFF8E1"
     tools:context="com.example.madhusudhanbr.assignment3.MasterDetailActivity">
 
 </FrameLayout>

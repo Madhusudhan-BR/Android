@@ -18,7 +18,7 @@ public class MainActivity extends AppCompatActivity implements FrontPageFragment
     public void onClicked(View view) {
 
         switch (view.getId()){
-            
+
             case R.id.button2 : FragmentManager fragmentManager = getSupportFragmentManager();
                 FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
 
@@ -73,13 +73,33 @@ public class MainActivity extends AppCompatActivity implements FrontPageFragment
 
             case R.id.action_one :
 
+                FragmentManager fragmentManager = getSupportFragmentManager();
+                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+
+                AboutMeFragment fragment2 = new AboutMeFragment();
+                fragmentTransaction.replace(R.id.container,fragment2);
+                fragmentTransaction.addToBackStack(null);
+                fragmentTransaction.commit();
+
+
+
                 return true ;
 
-            case R.id.action_two :
+            case R.id.action_two :Intent intent = new Intent(MainActivity.this,ViewPagerActivity.class);
+
+                startActivity(intent);
+
+
+
+
 
                 return true ;
 
-            case R.id.action_three:
+            case R.id.action_three: Intent indent = new Intent(MainActivity.this, MasterDetailActivity.class);
+
+                startActivity(indent);
+
+
 
                 return true;
 
