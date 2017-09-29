@@ -29,9 +29,14 @@ public class MainActivity extends AppCompatActivity implements FrontPageFragment
 
                 break;
 
-            case R.id.button3:  break;
+            case R.id.button3:
 
-           
+                Intent intent = new Intent(this, RecyclerViewActivity.class);
+                startActivity(intent);
+
+                break;
+
+
             default:
                 break;
         }
@@ -83,6 +88,8 @@ public class MainActivity extends AppCompatActivity implements FrontPageFragment
 
             case R.id.action_two :
 
+                Intent intent = new Intent(this, RecyclerViewActivity.class);
+                startActivity(intent);
 
                 return true ;
 //
