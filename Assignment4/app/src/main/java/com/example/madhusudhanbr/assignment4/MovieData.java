@@ -10,8 +10,9 @@ import java.util.Map;
  */
 
 public class MovieData {
+public  static
     List<Map<String,?>> moviesList;
-    public List <Map<String,?>> getMoviesList() {
+    public  List <Map<String,?>> getMoviesList() {
         return moviesList ;
     }
     public int getSize() {
@@ -180,7 +181,42 @@ public class MovieData {
         movie.put("backdrop" , backdrop ) ;
         movie.put("overview" , overview ) ;
         movie.put("release" , release );
+        movie.put("selection",false);
         //movie.put(" genres " , genres );
         return movie ;
+    }
+
+    public void addItem(int position) {
+
+
+
+
+       int pos = position + 1;
+        HashMap movie = (HashMap) moviesList.get(position);
+           String title = "Copy Of " + movie.get("title");
+        movie.put("title",title);
+        int image = (int) movie.get("image");
+        int id = (int) movie.get("id");
+        int voteCount = (int) movie.get("voteCount");
+        Double voteAverage = (Double) movie.get("voteAverage");
+        Double popularity = (Double) movie.get("popularity");
+        String poster = (String) movie.get("poster");
+        String backdrop = (String) movie.get("backdrop");
+        String overview = (String) movie.get("overview");
+        String release = (String) movie.get("release");
+
+        HashMap new_movie = createMovie(id,image,voteCount,voteAverage,popularity,title,poster,backdrop,overview,release);
+        moviesList.add( pos,movie);
+
+    }
+
+    public void add(int position, HashMap movie) {
+        moviesList.add(position, movie);
+    }
+
+    public void removeItem(int position){
+        if (position >=0 && position < moviesList.size()) {
+            moviesList.remove(position);
+        }
     }
 }
